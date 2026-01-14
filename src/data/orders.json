@@ -1,0 +1,64 @@
+{
+  "orders": [
+    {
+      "id": "ORD-001",
+      "date": "2024-01-10",
+      "status": "Delivered",
+      "total": "$49.99",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Premium Product 1",
+          "quantity": 1,
+          "price": "$29.99"
+        },
+        {
+          "productId": 2,
+          "name": "Premium Product 2",
+          "quantity": 1,
+          "price": "$20.00"
+        }
+      ]
+    },
+    {
+      "id": "ORD-002",
+      "date": "2024-01-05",
+      "status": "In Transit",
+      "total": "$79.99",
+      "items": [
+        {
+          "productId": 4,
+          "name": "Premium Product 4",
+          "quantity": 1,
+          "price": "$59.99"
+        },
+        {
+          "productId": 6,
+          "name": "Premium Product 6",
+          "quantity": 1,
+          "price": "$20.00"
+        }
+      ]
+    },
+    {
+      "id": "ORD-003",
+      "date": "2023-12-28",
+      "status": "Processing",
+      "total": "$129.99",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Premium Product 7",
+          "quantity": 2,
+          "price": "$89.99"
+        },
+        {
+          "productId": 2,
+          "name": "Premium Product 2",
+          "quantity": 1,
+          "price": "$40.00"
+        }
+      ]
+    }
+  ]
+}

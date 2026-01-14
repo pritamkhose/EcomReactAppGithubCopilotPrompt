@@ -1,0 +1,28 @@
+{
+  "cartItems": [
+    {
+      "id": 1,
+      "productId": 1,
+      "name": "Premium Product 1",
+      "price": "$29.99",
+      "quantity": 1,
+      "image": "🎁"
+    },
+    {
+      "id": 2,
+      "productId": 3,
+      "name": "Premium Product 3",
+      "price": "$49.99",
+      "quantity": 2,
+      "image": "🏆"
+    },
+    {
+      "id": 3,
+      "productId": 5,
+      "name": "Premium Product 5",
+      "price": "$69.99",
+      "quantity": 1,
+      "image": "🎯"
+    }
+  ]
+}

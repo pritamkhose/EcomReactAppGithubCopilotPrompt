@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Premium Product 1",
+      "price": "$29.99",
+      "description": "High quality product",
+      "image": "🎁"
+    },
+    {
+      "id": 2,
+      "name": "Premium Product 2",
+      "price": "$39.99",
+      "description": "Best seller item",
+      "image": "⭐"
+    },
+    {
+      "id": 3,
+      "name": "Premium Product 3",
+      "price": "$49.99",
+      "description": "Premium quality",
+      "image": "🏆"
+    },
+    {
+      "id": 4,
+      "name": "Premium Product 4",
+      "price": "$59.99",
+      "description": "Limited edition",
+      "image": "💎"
+    },
+    {
+      "id": 5,
+      "name": "Premium Product 5",
+      "price": "$69.99",
+      "description": "Exclusive item",
+      "image": "🎯"
+    },
+    {
+      "id": 6,
+      "name": "Premium Product 6",
+      "price": "$79.99",
+      "description": "Premium quality",
+      "image": "✨"
+    },
+    {
+      "id": 7,
+      "name": "Premium Product 7",
+      "price": "$89.99",
+      "description": "Luxury item",
+      "image": "👑"
+    },
+    {
+      "id": 8,
+      "name": "Premium Product 8",
+      "price": "$99.99",
+      "description": "Finest quality",
+      "image": "🌟"
+    },
+    {
+      "id": 9,
+      "name": "Premium Product 9",
+      "price": "$109.99",
+      "description": "Exclusive edition",
+      "image": "💫"
+    },
+    {
+      "id": 10,
+      "name": "Premium Product 10",
+      "price": "$119.99",
+      "description": "Limited stock",
+      "image": "🔥"
+    },
+    {
+      "id": 11,
+      "name": "Premium Product 11",
+      "price": "$129.99",
+      "description": "Best choice",
+      "image": "🎨"
+    },
+    {
+      "id": 12,
+      "name": "Premium Product 12",
+      "price": "$139.99",
+      "description": "Top rated",
+      "image": "🌈"
+    }
+  ]
+}
