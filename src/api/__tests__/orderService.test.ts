@@ -15,9 +15,9 @@ describe('Order Service', () => {
           productId: 1,
           name: 'Laptop',
           quantity: 1,
-          price: '999'
-        }
-      ]
+          price: '999',
+        },
+      ],
     },
     {
       id: '2',
@@ -29,10 +29,10 @@ describe('Order Service', () => {
           productId: 2,
           name: 'Phone',
           quantity: 2,
-          price: '699'
-        }
-      ]
-    }
+          price: '699',
+        },
+      ],
+    },
   ]
 
   beforeEach(() => {
@@ -41,7 +41,7 @@ describe('Order Service', () => {
 
   test('fetches orders successfully', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { orders: mockOrders }
+      data: { orders: mockOrders },
     })
 
     const orders = await orderService.getOrders()
@@ -51,7 +51,7 @@ describe('Order Service', () => {
 
   test('returns array of orders', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { orders: mockOrders }
+      data: { orders: mockOrders },
     })
 
     const orders = await orderService.getOrders()
@@ -62,7 +62,7 @@ describe('Order Service', () => {
 
   test('orders have required properties', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { orders: mockOrders }
+      data: { orders: mockOrders },
     })
 
     const orders = await orderService.getOrders()
@@ -76,7 +76,7 @@ describe('Order Service', () => {
 
   test('validates order statuses', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { orders: mockOrders }
+      data: { orders: mockOrders },
     })
 
     const orders = await orderService.getOrders()

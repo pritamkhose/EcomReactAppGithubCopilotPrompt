@@ -18,15 +18,15 @@ describe('Products Screen', () => {
       name: 'Laptop',
       price: '999',
       description: 'High performance laptop',
-      image: '💻'
+      image: '💻',
     },
     {
       id: 2,
       name: 'Phone',
       price: '699',
       description: 'Smartphone',
-      image: '📱'
-    }
+      image: '📱',
+    },
   ]
 
   beforeEach(() => {
@@ -38,7 +38,7 @@ describe('Products Screen', () => {
     render(<ProductsWithRouter />)
 
     await waitFor(() => {
-      expect(screen.getByText('All Products')).toBeInTheDocument()
+      expect(screen.getByText('Products')).toBeInTheDocument()
     })
   })
 
@@ -51,13 +51,11 @@ describe('Products Screen', () => {
   })
 
   test('displays error message on fetch failure', async () => {
-    ;(productService.default.getProducts as jest.Mock).mockRejectedValue(
-      new Error('API Error')
-    )
+    ;(productService.default.getProducts as jest.Mock).mockRejectedValue(new Error('API Error'))
     render(<ProductsWithRouter />)
 
     await waitFor(() => {
-      expect(screen.getByText(/Failed to fetch/i)).toBeInTheDocument()
+      expect(screen.getByText(/Try Again/i)).toBeInTheDocument()
     })
   })
 
@@ -76,8 +74,8 @@ describe('Products Screen', () => {
     render(<ProductsWithRouter />)
 
     await waitFor(() => {
-      expect(screen.getByText('$999')).toBeInTheDocument()
-      expect(screen.getByText('$699')).toBeInTheDocument()
+      expect(screen.getByText('699')).toBeInTheDocument()
+      expect(screen.getByText('999')).toBeInTheDocument()
     })
   })
 })

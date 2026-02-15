@@ -11,7 +11,7 @@ describe('Cart Service', () => {
       quantity: 2,
       image: '💻',
       price: '999',
-      name: 'Laptop'
+      name: 'Laptop',
     },
     {
       id: 2,
@@ -19,8 +19,8 @@ describe('Cart Service', () => {
       quantity: 1,
       image: '📱',
       price: '699',
-      name: 'Phone'
-    }
+      name: 'Phone',
+    },
   ]
 
   beforeEach(() => {
@@ -29,7 +29,7 @@ describe('Cart Service', () => {
 
   test('fetches cart items successfully', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { cartItems: mockCartItems }
+      data: { cartItems: mockCartItems },
     })
 
     const cartItems = await cartService.getCartItems()
@@ -39,7 +39,7 @@ describe('Cart Service', () => {
 
   test('returns array of cart items', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { cartItems: mockCartItems }
+      data: { cartItems: mockCartItems },
     })
 
     const cartItems = await cartService.getCartItems()
@@ -50,7 +50,7 @@ describe('Cart Service', () => {
 
   test('cart items have required properties', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { cartItems: mockCartItems }
+      data: { cartItems: mockCartItems },
     })
 
     const cartItems = await cartService.getCartItems()
@@ -73,7 +73,7 @@ describe('Cart Service', () => {
 
   test('handles empty cart', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { cartItems: [] }
+      data: { cartItems: [] },
     })
 
     const cartItems = await cartService.getCartItems()

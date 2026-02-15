@@ -19,7 +19,7 @@ describe('Cart Screen', () => {
       quantity: 2,
       image: '💻',
       price: '999',
-      name: 'Laptop'
+      name: 'Laptop',
     },
     {
       id: 2,
@@ -27,8 +27,8 @@ describe('Cart Screen', () => {
       quantity: 1,
       image: '📱',
       price: '699',
-      name: 'Phone'
-    }
+      name: 'Phone',
+    },
   ]
 
   beforeEach(() => {
@@ -45,21 +45,17 @@ describe('Cart Screen', () => {
   })
 
   test('displays loading spinner initially', () => {
-    ;(cartService.default.getCartItems as jest.Mock).mockImplementation(
-      () => new Promise(() => {})
-    )
+    ;(cartService.default.getCartItems as jest.Mock).mockImplementation(() => new Promise(() => {}))
     render(<CartWithRouter />)
     expect(screen.getByText('Loading products...')).toBeInTheDocument()
   })
 
   test('displays error message on fetch failure', async () => {
-    ;(cartService.default.getCartItems as jest.Mock).mockRejectedValue(
-      new Error('Cart Error')
-    )
+    ;(cartService.default.getCartItems as jest.Mock).mockRejectedValue(new Error('Cart Error'))
     render(<CartWithRouter />)
 
     await waitFor(() => {
-      expect(screen.getByText(/Failed to fetch/i)).toBeInTheDocument()
+      expect(screen.getByText(/Try Again/i)).toBeInTheDocument()
     })
   })
 

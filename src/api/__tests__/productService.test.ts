@@ -10,15 +10,15 @@ describe('Product Service', () => {
       name: 'Laptop',
       price: '999',
       description: 'High performance laptop',
-      image: '💻'
+      image: '💻',
     },
     {
       id: 2,
       name: 'Phone',
       price: '699',
       description: 'Smartphone',
-      image: '📱'
-    }
+      image: '📱',
+    },
   ]
 
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe('Product Service', () => {
 
   test('fetches products successfully', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { products: mockProducts }
+      data: { products: mockProducts },
     })
 
     const products = await productService.getProducts()
@@ -37,7 +37,7 @@ describe('Product Service', () => {
 
   test('returns array of products', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { products: mockProducts }
+      data: { products: mockProducts },
     })
 
     const products = await productService.getProducts()
@@ -48,7 +48,7 @@ describe('Product Service', () => {
 
   test('products have required properties', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { products: mockProducts }
+      data: { products: mockProducts },
     })
 
     const products = await productService.getProducts()
@@ -63,7 +63,7 @@ describe('Product Service', () => {
 
   test('product names are strings', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { products: mockProducts }
+      data: { products: mockProducts },
     })
 
     const products = await productService.getProducts()
@@ -84,7 +84,7 @@ describe('Product Service', () => {
 
   test('handles empty product list', async () => {
     ;(axiosClient.get as jest.Mock).mockResolvedValue({
-      data: { products: [] }
+      data: { products: [] },
     })
 
     const products = await productService.getProducts()

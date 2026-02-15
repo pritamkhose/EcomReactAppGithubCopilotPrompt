@@ -29,13 +29,13 @@ describe('Contact Screen', () => {
 
   test('renders contact information section', () => {
     render(<ContactWithRouter />)
-    expect(screen.getByText('Contact Information')).toBeInTheDocument()
+    expect(screen.getByText('Contact Us')).toBeInTheDocument()
   })
 
   test('allows user to fill in form fields', () => {
     render(<ContactWithRouter />)
-    const nameInput = screen.getByPlaceholderText('Your Name') as HTMLInputElement
-    const emailInput = screen.getByPlaceholderText('Your Email') as HTMLInputElement
+    const nameInput = screen.getByPlaceholderText('Your full name') as HTMLInputElement
+    const emailInput = screen.getByPlaceholderText('your@email.com') as HTMLInputElement
 
     fireEvent.change(nameInput, { target: { value: 'John Doe' } })
     fireEvent.change(emailInput, { target: { value: 'john@example.com' } })
@@ -46,7 +46,7 @@ describe('Contact Screen', () => {
 
   test('updates textarea value on change', () => {
     render(<ContactWithRouter />)
-    const messageInput = screen.getByPlaceholderText('Your Message') as HTMLTextAreaElement
+    const messageInput = screen.getByPlaceholderText('Your message...') as HTMLTextAreaElement
     fireEvent.change(messageInput, { target: { value: 'Test message' } })
     expect(messageInput.value).toBe('Test message')
   })
@@ -54,10 +54,10 @@ describe('Contact Screen', () => {
   test('handles form submission', async () => {
     render(<ContactWithRouter />)
 
-    const nameInput = screen.getByPlaceholderText('Your Name')
-    const emailInput = screen.getByPlaceholderText('Your Email')
-    const subjectInput = screen.getByPlaceholderText('Subject')
-    const messageInput = screen.getByPlaceholderText('Your Message')
+    const nameInput = screen.getByPlaceholderText('Your full name')
+    const emailInput = screen.getByPlaceholderText('your@email.com')
+    const subjectInput = screen.getByPlaceholderText('How can we help?')
+    const messageInput = screen.getByPlaceholderText('Your message...')
     const submitButton = screen.getByRole('button', { name: /send/i })
 
     fireEvent.change(nameInput, { target: { value: 'John Doe' } })
@@ -66,10 +66,11 @@ describe('Contact Screen', () => {
     fireEvent.change(messageInput, { target: { value: 'Test message content' } })
     fireEvent.click(submitButton)
 
-    await waitFor(() => {
-      expect(
-        screen.getByText(/Thanks for contacting/i)
-      ).toBeInTheDocument()
-    }, { timeout: 1000 })
+    await waitFor(
+      () => {
+        expect(screen.getByText(/Thank You!/i)).toBeInTheDocument()
+      },
+      { timeout: 1000 }
+    )
   })
 })

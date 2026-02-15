@@ -17,7 +17,7 @@ describe('Home Screen', () => {
     name: `Product ${i + 1}`,
     price: '999',
     description: `Description ${i + 1}`,
-    image: '💻'
+    image: '💻',
   }))
 
   beforeEach(() => {

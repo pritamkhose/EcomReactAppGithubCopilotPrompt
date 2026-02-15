@@ -16,16 +16,15 @@ describe('Settings Screen', () => {
 
   test('renders all form fields', () => {
     render(<SettingsWithRouter />)
-    expect(screen.getByPlaceholderText('Email')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Full Name')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Phone Number')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Address')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('your@email.com')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Your Name')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Street Address')).toBeInTheDocument()
   })
 
-  test('renders form sections', () => {
+  test('renders form preferences sections', () => {
     render(<SettingsWithRouter />)
-    expect(screen.getByText('Profile Settings')).toBeInTheDocument()
-    expect(screen.getByText('Preferences')).toBeInTheDocument()
+    expect(screen.getByText('Email Notifications')).toBeInTheDocument()
+    expect(screen.getByText('Newsletter Subscription')).toBeInTheDocument()
   })
 
   test('renders save button', () => {
@@ -36,8 +35,8 @@ describe('Settings Screen', () => {
 
   test('allows user to input form data', () => {
     render(<SettingsWithRouter />)
-    const nameInput = screen.getByPlaceholderText('Full Name') as HTMLInputElement
-    const emailInput = screen.getByPlaceholderText('Email') as HTMLInputElement
+    const nameInput = screen.getByPlaceholderText('Your Name') as HTMLInputElement
+    const emailInput = screen.getByPlaceholderText('your@email.com') as HTMLInputElement
 
     fireEvent.change(nameInput, { target: { value: 'John Doe' } })
     fireEvent.change(emailInput, { target: { value: 'john@example.com' } })

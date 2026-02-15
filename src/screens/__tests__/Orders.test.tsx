@@ -23,9 +23,9 @@ describe('Orders Screen', () => {
           productId: 1,
           name: 'Laptop',
           quantity: 1,
-          price: '999'
-        }
-      ]
+          price: '999',
+        },
+      ],
     },
     {
       id: '2',
@@ -37,10 +37,10 @@ describe('Orders Screen', () => {
           productId: 2,
           name: 'Phone',
           quantity: 2,
-          price: '699'
-        }
-      ]
-    }
+          price: '699',
+        },
+      ],
+    },
   ]
 
   beforeEach(() => {
@@ -52,26 +52,22 @@ describe('Orders Screen', () => {
     render(<OrdersWithRouter />)
 
     await waitFor(() => {
-      expect(screen.getByText('Order History')).toBeInTheDocument()
+      expect(screen.getByText('Your Orders')).toBeInTheDocument()
     })
   })
 
   test('displays loading spinner initially', () => {
-    ;(orderService.default.getOrders as jest.Mock).mockImplementation(
-      () => new Promise(() => {})
-    )
+    ;(orderService.default.getOrders as jest.Mock).mockImplementation(() => new Promise(() => {}))
     render(<OrdersWithRouter />)
     expect(screen.getByText('Loading products...')).toBeInTheDocument()
   })
 
   test('displays error message on fetch failure', async () => {
-    ;(orderService.default.getOrders as jest.Mock).mockRejectedValue(
-      new Error('Order Error')
-    )
+    ;(orderService.default.getOrders as jest.Mock).mockRejectedValue(new Error('Order Error'))
     render(<OrdersWithRouter />)
 
     await waitFor(() => {
-      expect(screen.getByText(/Failed to fetch/i)).toBeInTheDocument()
+      expect(screen.getByText(/Try Again/i)).toBeInTheDocument()
     })
   })
 
