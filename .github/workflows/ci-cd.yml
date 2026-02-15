@@ -13,7 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24' # Specify the Node.js version
+          cache: 'npm' # Optional: enables caching for npm dependencies
 
       - name: Install dependencies
         run: npm i
@@ -34,7 +39,7 @@ jobs:
 
       # Optional: Upload full coverage report as an artifact for later review
       - name: Upload coverage artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jest-coverage-report
           path: coverage/
@@ -42,7 +47,7 @@ jobs:
 
       # Optional: Upload full coverage report as an artifact for later review
       - name: Upload test-report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jest-test-report
           path: test-report/index.html
