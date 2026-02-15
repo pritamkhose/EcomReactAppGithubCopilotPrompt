@@ -26,16 +26,6 @@ jobs:
       - name: Run tests and generate coverage report
         run: |
           npm run test:coverage && npm run test:CI
-        # Ensure your project has 'jest-junit' reporter installed (npm install --save-dev jest-junit)
-        # and configured in your jest.config.js or package.json
-
-      - name: Publish Test Report
-        uses: phoenix-actions/test-reporting@v8
-        if: success() || failure() # Run this step even if the tests fail
-        with:
-          name: JEST Tests # Name of the check run which will be created
-          path: reports/jest-*.xml # Path to test results
-          reporter: jest-junit # Format of test results
 
       # Optional: Upload full coverage report as an artifact for later review
       - name: Upload coverage artifact
