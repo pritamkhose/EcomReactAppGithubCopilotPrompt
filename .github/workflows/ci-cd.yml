@@ -1,0 +1,49 @@
+name: CI/CD Pipeline for Vite React App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run tests and generate coverage report
+        run: |
+          npm run test:coverage && npm run test:CI
+        # Ensure your project has 'jest-junit' reporter installed (npm install --save-dev jest-junit)
+        # and configured in your jest.config.js or package.json
+
+      - name: Publish Test Report
+        uses: phoenix-actions/test-reporting@v8
+        if: success() || failure() # Run this step even if the tests fail
+        with:
+          name: JEST Tests # Name of the check run which will be created
+          path: reports/jest-*.xml # Path to test results
+          reporter: jest-junit # Format of test results
+
+      # Optional: Upload full coverage report as an artifact for later review
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jest-coverage-report
+          path: coverage/
+          retention-days: 5
+
+      # Optional: Upload full coverage report as an artifact for later review
+      - name: Upload test-report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jest-test-report
+          path: test-report/index.html
+          retention-days: 10
