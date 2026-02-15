@@ -1,9 +1,7 @@
 import axiosClient from './axiosClient'
-import ordersData from '../data/orders.json'
+import ordersData from '../../public/data/orders.json'
 
-const ORDERS_API_URL =
-  'https://firebasestorage.googleapis.com/v0/b/node-pritam.appspot.com/o/orders.json?alt=media'
-
+const ORDERS_API_URL = '/data/orders.json'
 export interface OrderItem {
   productId: number
   name: string

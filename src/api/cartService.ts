@@ -1,9 +1,7 @@
 import axiosClient from './axiosClient'
-import cartData from '../data/cart.json'
+import cartData from '../../public/data/cart.json'
 
-const CART_API_URL =
-  'https://firebasestorage.googleapis.com/v0/b/node-pritam.appspot.com/o/cart.json?alt=media'
-
+const CART_API_URL = '/data/cart.json'
 export interface CartItem {
   id: number
   productId: number

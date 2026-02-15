@@ -1,9 +1,8 @@
 import axiosClient from './axiosClient'
 
-import product from '../data/products.json'
+import product from '../../public/data/products.json'
 
-const PRODUCTS_API_URL =
-  'https://firebasestorage.googleapis.com/v0/b/node-pritam.appspot.com/o/products.json?alt=media&token=72ae566b-b7b2-4bba-94ec-2e9738cf5bef'
+const PRODUCTS_API_URL = '/data/products.json'
 
 export interface Product {
   id: number

@@ -50,7 +50,7 @@ yarn build
 ## 🧪 Testing Library
 
 ```bash
-yarn add --dev jest @types/jest @testing-library/react @testing-library/dom jest-html-reporter
+yarn add --dev jest @types/jest @testing-library/react @testing-library/dom jest-html-reporter @testing-library/user-event
 ```
 
 ## 📋 Available Scripts
