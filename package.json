@@ -16,7 +16,7 @@
     "test:CI": "jest --testResultsProcessor=./node_modules/jest-html-reporter"
   },
   "dependencies": {
-    "axios": "^1.13.2",
+    "axios": "^1.13.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.12.0"
